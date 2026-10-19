@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report Keuangan - Kost Management System</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="layout">
+  <div class="sidebar">
+    <div class="brand">KOST<span>Manager</span></div>
+    <a href="main_menu.html">🏠 Main Menu</a>
+    <div class="section-label">Master Data</div>
+    <a href="property.html">🏢 Property</a>
+    <a href="kamar.html">🚪 Kamar</a>
+    <div class="section-label">Pembayaran</div>
+    <a href="pembayaran_booking.html">📅 Booking</a>
+    <a href="pembayaran_bulanan.html">💳 Pembayaran Bulanan</a>
+    <div class="section-label">Setting</div>
+    <a href="setting_tipe_property.html">⚙️ Tipe Property</a>
+    <a href="setting_tipe_kamar.html">⚙️ Tipe Kamar</a>
+    <a href="setting_tipe_transaksi.html">⚙️ Tipe Transaksi</a>
+    <div class="section-label">Report</div>
+    <a href="report_penghuni_aktif.html">📊 Penghuni Aktif</a>
+    <a href="report_kamar_kosong.html">📊 Kamar Kosong</a>
+    <a href="report_tagihan_penghuni.html">📊 Tagihan Penghuni</a>
+    <a href="report_keuangan.html" class="active">📊 Keuangan</a>
+    <a href="report_booking.html">📊 Booking Report</a>
+  </div>
+  <div class="sidebar-overlay"></div>
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+        <h1>Report &rsaquo; Keuangan (Pemasukan & Pengeluaran)</h1>
+      </div>
+      <div class="user"><span>Tommy Hutomo</span><div class="avatar">TH</div></div>
+    </div>
+    <div class="content">
+      <div class="toolbar">
+        <div class="filters">
+          <select><option>Semua Property</option><option>Kost Melati</option><option>Kost Mawar</option><option>Kost Anggrek</option></select>
+          <select><option>Periode: Okt 2026</option><option>Sep 2026</option><option>Kuartal Ini</option><option>Tahun 2026</option></select>
+        </div>
+        <button class="btn btn-outline">⬇ Export Excel</button>
+      </div>
+      <div class="grid-cards cols-3">
+        <div class="stat-card"><div class="label">Total Pemasukan</div><div class="value" style="color:#16a34a;">Rp 185.000.000</div></div>
+        <div class="stat-card"><div class="label">Total Pengeluaran</div><div class="value" style="color:#dc2626;">Rp 68.000.000</div></div>
+        <div class="stat-card"><div class="label">Laba Bersih</div><div class="value">Rp 117.000.000</div></div>
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <h2>Tren Pemasukan vs Pengeluaran</h2>
+          <canvas id="lineChart" height="110"></canvas>
+        </div>
+        <div class="card">
+          <h2>Pengeluaran by Tipe Transaksi</h2>
+          <canvas id="pieChart2" height="180"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Detail Transaksi</h2>
+        <table>
+          <thead>
+            <tr><th>Tanggal</th><th>Property</th><th>Tipe Transaksi</th><th>Kategori</th><th>Keterangan</th><th>Jumlah</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>01 Okt 2026</td><td>Kost Melati</td><td>Sewa Bulanan</td><td><span class="badge badge-success">Pemasukan</span></td><td>Budi Santoso - A-101</td><td>Rp 1.500.000</td></tr>
+            <tr><td>03 Okt 2026</td><td>Kost Melati</td><td>Sewa Bulanan</td><td><span class="badge badge-success">Pemasukan</span></td><td>Andi Wijaya - A-105</td><td>Rp 1.500.000</td></tr>
+            <tr><td>05 Okt 2026</td><td>Kost Mawar</td><td>Listrik & Air</td><td><span class="badge badge-danger">Pengeluaran</span></td><td>Tagihan PLN & PDAM</td><td>Rp 4.200.000</td></tr>
+            <tr><td>07 Okt 2026</td><td>Kost Anggrek</td><td>Maintenance</td><td><span class="badge badge-danger">Pengeluaran</span></td><td>Perbaikan AC kamar C-308</td><td>Rp 750.000</td></tr>
+            <tr><td>10 Okt 2026</td><td>Semua Property</td><td>Gaji Staff</td><td><span class="badge badge-danger">Pengeluaran</span></td><td>Gaji staff bulan Sep</td><td>Rp 12.000.000</td></tr>
+          </tbody>
+        </table>
+        <div class="pagination">
+          <a href="#">&laquo;</a><span class="active">1</span><a href="#">2</a><a href="#">&raquo;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+new Chart(document.getElementById('lineChart'), {
+  type: 'line',
+  data: {
+    labels: ['Mei','Jun','Jul','Agu','Sep','Okt'],
+    datasets: [
+      {label:'Pemasukan', data:[150,160,170,165,180,185], borderColor:'#2563eb', backgroundColor:'rgba(37,99,235,.1)', tension:.3, fill:true},
+      {label:'Pengeluaran', data:[60,65,58,70,62,68], borderColor:'#dc2626', backgroundColor:'rgba(220,38,38,.1)', tension:.3, fill:true}
+    ]
+  },
+  options:{responsive:true, plugins:{legend:{position:'bottom'}}}
+});
+new Chart(document.getElementById('pieChart2'), {
+  type: 'pie',
+  data: {
+    labels: ['Listrik & Air','Maintenance','Gaji Staff','ATK & Lainnya'],
+    datasets: [{data:[35,25,30,10], backgroundColor:['#2563eb','#f97316','#16a34a','#eab308']}]
+  },
+  options:{responsive:true, plugins:{legend:{position:'bottom'}}}
+});
+</script>
+<script src="mobile-nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tipe Transaksi - Kost Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="sidebar">
+    <div class="brand">KOST<span>Manager</span></div>
+    <a href="main_menu.html">🏠 Main Menu</a>
+    <div class="section-label">Master Data</div>
+    <a href="property.html">🏢 Property</a>
+    <a href="kamar.html">🚪 Kamar</a>
+    <div class="section-label">Pembayaran</div>
+    <a href="pembayaran_booking.html">📅 Booking</a>
+    <a href="pembayaran_bulanan.html">💳 Pembayaran Bulanan</a>
+    <div class="section-label">Setting</div>
+    <a href="setting_tipe_property.html">⚙️ Tipe Property</a>
+    <a href="setting_tipe_kamar.html">⚙️ Tipe Kamar</a>
+    <a href="setting_tipe_transaksi.html" class="active">⚙️ Tipe Transaksi</a>
+    <div class="section-label">Report</div>
+    <a href="report_penghuni_aktif.html">📊 Penghuni Aktif</a>
+    <a href="report_kamar_kosong.html">📊 Kamar Kosong</a>
+    <a href="report_tagihan_penghuni.html">📊 Tagihan Penghuni</a>
+    <a href="report_keuangan.html">📊 Keuangan</a>
+    <a href="report_booking.html">📊 Booking Report</a>
+  </div>
+  <div class="sidebar-overlay"></div>
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+        <h1>Setting &rsaquo; Tipe Transaksi</h1>
+      </div>
+      <div class="user"><span>Tommy Hutomo</span><div class="avatar">TH</div></div>
+    </div>
+    <div class="content">
+      <div class="tabs">
+        <a href="setting_tipe_property.html">Tipe Property</a>
+        <a href="setting_tipe_kamar.html">Tipe Kamar</a>
+        <a href="setting_tipe_transaksi.html" class="active">Tipe Transaksi</a>
+      </div>
+      <div class="card">
+        <div class="toolbar">
+          <div class="filters">
+            <input type="text" placeholder="Cari tipe transaksi...">
+            <select><option>Semua Kategori</option><option>Pemasukan</option><option>Pengeluaran</option></select>
+          </div>
+          <button class="btn btn-primary" onclick="document.getElementById('modalAdd').style.display='flex'">+ Tambah Tipe Transaksi</button>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Kode</th><th>Nama</th><th>Kategori</th><th>Deskripsi</th><th>Status</th><th>Aksi</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>SEWA</td><td>Sewa Bulanan</td><td><span class="badge badge-success">Pemasukan</span></td><td>Pembayaran sewa kamar bulanan</td><td><span class="badge badge-success">Aktif</span></td>
+              <td><button class="btn btn-sm btn-outline">Edit</button> <button class="btn btn-sm btn-outline">Hapus</button></td></tr>
+            <tr><td>DEPOSIT</td><td>Deposit</td><td><span class="badge badge-success">Pemasukan</span></td><td>Deposit saat booking / check-in</td><td><span class="badge badge-success">Aktif</span></td>
+              <td><button class="btn btn-sm btn-outline">Edit</button> <button class="btn btn-sm btn-outline">Hapus</button></td></tr>
+            <tr><td>DENDA</td><td>Denda Keterlambatan</td><td><span class="badge badge-success">Pemasukan</span></td><td>Denda telat bayar sewa</td><td><span class="badge badge-success">Aktif</span></td>
+              <td><button class="btn btn-sm btn-outline">Edit</button> <button class="btn btn-sm btn-outline">Hapus</button></td></tr>
+            <tr><td>LISTRIK</td><td>Listrik & Air</td><td><span class="badge badge-danger">Pengeluaran</span></td><td>Biaya listrik dan air bulanan</td><td><span class="badge badge-success">Aktif</span></td>
+              <td><button class="btn btn-sm btn-outline">Edit</button> <button class="btn btn-sm btn-outline">Hapus</button></td></tr>
+            <tr><td>MAINT</td><td>Maintenance</td><td><span class="badge badge-danger">Pengeluaran</span></td><td>Perbaikan & perawatan fasilitas</td><td><span class="badge badge-success">Aktif</span></td>
+              <td><button class="btn btn-sm btn-outline">Edit</button> <button class="btn btn-sm btn-outline">Hapus</button></td></tr>
+            <tr><td>GAJI</td><td>Gaji Staff</td><td><span class="badge badge-danger">Pengeluaran</span></td><td>Gaji penjaga / staff kost</td><td><span class="badge badge-success">Aktif</span></td>
+              <td><button class="btn btn-sm btn-outline">Edit</button> <button class="btn btn-sm btn-outline">Hapus</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalAdd" style="display:none;">
+  <div class="modal">
+    <h3>Tambah Tipe Transaksi</h3>
+    <div class="form-grid">
+      <div class="form-group"><label>Kode</label><input type="text" placeholder="GAJI"></div>
+      <div class="form-group"><label>Nama</label><input type="text" placeholder="Gaji Staff"></div>
+      <div class="form-group"><label>Kategori</label><select><option>Pemasukan</option><option>Pengeluaran</option></select></div>
+      <div class="form-group"><label>Status</label><select><option>Aktif</option><option>Non-Aktif</option></select></div>
+      <div class="form-group full"><label>Deskripsi</label><input type="text" placeholder="Deskripsi singkat"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="document.getElementById('modalAdd').style.display='none'">Batal</button>
+      <button class="btn btn-primary">Simpan</button>
+    </div>
+  </div>
+</div>
+<script src="mobile-nav.js"></script>
+</body>
+</html>

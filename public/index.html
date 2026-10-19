@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screen Mockup Index - Kost Management System</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .idx-wrap{max-width:900px; margin:40px auto; padding:0 20px;}
+  .idx-group{margin-bottom:28px;}
+  .idx-group h3{font-size:13px; text-transform:uppercase; letter-spacing:.05em; color:#64748b; margin-bottom:10px;}
+  .idx-list{display:grid; grid-template-columns:repeat(2,1fr); gap:10px;}
+  .idx-list a{
+    display:block; background:#fff; border:1px solid var(--border); border-radius:8px;
+    padding:14px 16px; text-decoration:none; color:var(--text); font-weight:600; font-size:14px;
+  }
+  .idx-list a:hover{border-color:var(--primary); color:var(--primary);}
+  @media (max-width: 560px){
+    .idx-wrap{margin:20px auto;}
+    .idx-list{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="idx-wrap">
+  <h1 style="margin-bottom:4px;">Kost Management System</h1>
+  <p style="color:#64748b; margin-top:0;">Screen Mockup Index — based on ERD, Sitemap &amp; Report Requirement</p>
+
+  <div class="idx-group">
+    <h3>Login &amp; Dashboard</h3>
+    <div class="idx-list">
+      <a href="login.html">Login Page</a>
+      <a href="main_menu.html">Main Menu (with Pie Chart)</a>
+    </div>
+  </div>
+
+  <div class="idx-group">
+    <h3>Master Data</h3>
+    <div class="idx-list">
+      <a href="property.html">Property</a>
+      <a href="kamar.html">Kamar</a>
+    </div>
+  </div>
+
+  <div class="idx-group">
+    <h3>Pembayaran</h3>
+    <div class="idx-list">
+      <a href="pembayaran_booking.html">Booking</a>
+      <a href="pembayaran_bulanan.html">Pembayaran Bulanan</a>
+    </div>
+  </div>
+
+  <div class="idx-group">
+    <h3>Setting</h3>
+    <div class="idx-list">
+      <a href="setting_tipe_property.html">Tipe Property</a>
+      <a href="setting_tipe_kamar.html">Tipe Kamar</a>
+      <a href="setting_tipe_transaksi.html">Tipe Transaksi</a>
+    </div>
+  </div>
+
+  <div class="idx-group">
+    <h3>Report</h3>
+    <div class="idx-list">
+      <a href="report_penghuni_aktif.html">Penghuni Aktif</a>
+      <a href="report_kamar_kosong.html">Kamar Kosong</a>
+      <a href="report_tagihan_penghuni.html">Tagihan Penghuni</a>
+      <a href="report_keuangan.html">Keuangan (Pemasukan &amp; Pengeluaran)</a>
+      <a href="report_booking.html">Booking</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

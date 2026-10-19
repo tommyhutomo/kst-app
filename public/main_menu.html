@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Main Menu - Kost Management System</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body data-page="dashboard">
+<div class="layout">
+  <div class="sidebar">
+    <div class="brand">KOST<span>Manager</span></div>
+    <a href="main_menu.html" class="active">🏠 Main Menu</a>
+    <div class="section-label">Master Data</div>
+    <a href="property.html">🏢 Property</a>
+    <a href="kamar.html">🚪 Kamar</a>
+    <div class="section-label">Pembayaran</div>
+    <a href="pembayaran_booking.html">📅 Booking</a>
+    <a href="pembayaran_bulanan.html">💳 Pembayaran Bulanan</a>
+    <div class="section-label">Setting</div>
+    <a href="setting_tipe_property.html">⚙️ Tipe Property</a>
+    <a href="setting_tipe_kamar.html">⚙️ Tipe Kamar</a>
+    <a href="setting_tipe_transaksi.html">⚙️ Tipe Transaksi</a>
+    <div class="section-label">Report</div>
+    <a href="report_penghuni_aktif.html">📊 Penghuni Aktif</a>
+    <a href="report_kamar_kosong.html">📊 Kamar Kosong</a>
+    <a href="report_tagihan_penghuni.html">📊 Tagihan Penghuni</a>
+    <a href="report_keuangan.html">📊 Keuangan</a>
+    <a href="report_booking.html">📊 Booking Report</a>
+  </div>
+  <div class="sidebar-overlay"></div>
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+        <h1>Dashboard Summary</h1>
+      </div>
+      <div class="user">
+        <span>Tommy Hutomo</span>
+        <div class="avatar">TH</div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="grid-cards">
+        <div class="stat-card">
+          <div class="label">Total Penghuni Aktif</div>
+          <div class="value">128</div>
+          <div class="sub">+4 bulan ini</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Kamar Kosong</div>
+          <div class="value">17</div>
+          <div class="sub" style="color:#d97706;">dari 145 kamar</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Pemasukan Bulan Ini</div>
+          <div class="value">Rp 185jt</div>
+          <div class="sub">+8.2% vs bulan lalu</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Booking Baru</div>
+          <div class="value">9</div>
+          <div class="sub" style="color:#64748b;">menunggu konfirmasi: 3</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h2>Pemasukan vs Pengeluaran (6 bulan terakhir)</h2>
+          <canvas id="barChart" height="110"></canvas>
+        </div>
+        <div class="card">
+          <h2>Pengeluaran by Tipe Transaksi</h2>
+          <canvas id="pieChart" height="180"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Tagihan Jatuh Tempo Terdekat</h2>
+        <table data-table="due-bills">
+          <thead>
+            <tr><th>Penghuni</th><th>Kamar</th><th>Property</th><th>Jatuh Tempo</th><th>Jumlah</th><th>Status</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="footer-note">Kost Management System &copy; 2026</div>
+  </div>
+</div>
+<script src="js/api.js"></script>
+<script src="js/format.js"></script>
+<script src="js/auth-guard.js"></script>
+<script src="js/app.js"></script>
+<script src="mobile-nav.js"></script>
+</body>
+</html>

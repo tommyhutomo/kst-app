@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pembayaran Bulanan - Kost Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="sidebar">
+    <div class="brand">KOST<span>Manager</span></div>
+    <a href="main_menu.html">🏠 Main Menu</a>
+    <div class="section-label">Master Data</div>
+    <a href="property.html">🏢 Property</a>
+    <a href="kamar.html">🚪 Kamar</a>
+    <div class="section-label">Pembayaran</div>
+    <a href="pembayaran_booking.html">📅 Booking</a>
+    <a href="pembayaran_bulanan.html" class="active">💳 Pembayaran Bulanan</a>
+    <div class="section-label">Setting</div>
+    <a href="setting_tipe_property.html">⚙️ Tipe Property</a>
+    <a href="setting_tipe_kamar.html">⚙️ Tipe Kamar</a>
+    <a href="setting_tipe_transaksi.html">⚙️ Tipe Transaksi</a>
+    <div class="section-label">Report</div>
+    <a href="report_penghuni_aktif.html">📊 Penghuni Aktif</a>
+    <a href="report_kamar_kosong.html">📊 Kamar Kosong</a>
+    <a href="report_tagihan_penghuni.html">📊 Tagihan Penghuni</a>
+    <a href="report_keuangan.html">📊 Keuangan</a>
+    <a href="report_booking.html">📊 Booking Report</a>
+  </div>
+  <div class="sidebar-overlay"></div>
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+        <h1>Pembayaran &rsaquo; Pembayaran Bulanan</h1>
+      </div>
+      <div class="user"><span>Tommy Hutomo</span><div class="avatar">TH</div></div>
+    </div>
+    <div class="content">
+      <div class="tabs">
+        <a href="pembayaran_booking.html">Booking</a>
+        <a href="pembayaran_bulanan.html" class="active">Pembayaran Bulanan</a>
+      </div>
+      <div class="card">
+        <div class="toolbar">
+          <div class="filters">
+            <select><option>Semua Property</option><option>Kost Melati</option><option>Kost Mawar</option></select>
+            <select><option>Bulan: Oktober 2026</option><option>September 2026</option><option>November 2026</option></select>
+            <select><option>Semua Status</option><option>Lunas</option><option>Belum Bayar</option></select>
+          </div>
+          <button class="btn btn-primary" onclick="document.getElementById('modalAdd').style.display='flex'">+ Input Pembayaran</button>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Transaksi ID</th><th>Penghuni</th><th>Kamar</th><th>Tipe Transaksi</th><th>Periode</th><th>Tgl Transaksi</th><th>Jumlah</th><th>Keterangan</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>TX-5521</td><td>Budi Santoso</td><td>A-101</td><td>Sewa Bulanan</td><td>Okt 2026</td><td>01 Okt 2026</td><td>Rp 1.500.000</td><td><span class="badge badge-success">Lunas</span></td></tr>
+            <tr><td>TX-5522</td><td>Siti Aminah</td><td>B-204</td><td>Sewa Bulanan</td><td>Okt 2026</td><td>-</td><td>Rp 1.750.000</td><td><span class="badge badge-warning">Belum Bayar</span></td></tr>
+            <tr><td>TX-5523</td><td>Andi Wijaya</td><td>A-105</td><td>Sewa Bulanan</td><td>Okt 2026</td><td>03 Okt 2026</td><td>Rp 1.500.000</td><td><span class="badge badge-success">Lunas</span></td></tr>
+            <tr><td>TX-5524</td><td>Budi Santoso</td><td>A-101</td><td>Denda Keterlambatan</td><td>Sep 2026</td><td>05 Okt 2026</td><td>Rp 50.000</td><td><span class="badge badge-success">Lunas</span></td></tr>
+          </tbody>
+        </table>
+        <div class="pagination">
+          <a href="#">&laquo;</a><span class="active">1</span><a href="#">2</a><a href="#">3</a><a href="#">&raquo;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalAdd" style="display:none;">
+  <div class="modal">
+    <h3>Input Pembayaran</h3>
+    <div class="form-grid">
+      <div class="form-group full"><label>Penghuni (Kamar)</label><select><option>Siti Aminah - B-204</option><option>Budi Santoso - A-101</option></select></div>
+      <div class="form-group"><label>Tipe Transaksi</label><select><option>Sewa Bulanan</option><option>Denda Keterlambatan</option><option>Deposit</option></select></div>
+      <div class="form-group"><label>Periode (Bulan/Tahun)</label><input type="month"></div>
+      <div class="form-group"><label>Tanggal Transaksi</label><input type="date"></div>
+      <div class="form-group"><label>Jumlah</label><input type="text" placeholder="Rp 1.750.000"></div>
+      <div class="form-group full"><label>Keterangan</label><input type="text" placeholder="Catatan tambahan (opsional)"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="document.getElementById('modalAdd').style.display='none'">Batal</button>
+      <button class="btn btn-primary">Simpan</button>
+    </div>
+  </div>
+</div>
+<script src="mobile-nav.js"></script>
+</body>
+</html>

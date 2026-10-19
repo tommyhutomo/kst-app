@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property - Kost Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="property">
+<div class="layout">
+  <div class="sidebar">
+    <div class="brand">KOST<span>Manager</span></div>
+    <a href="main_menu.html">🏠 Main Menu</a>
+    <div class="section-label">Master Data</div>
+    <a href="property.html" class="active">🏢 Property</a>
+    <a href="kamar.html">🚪 Kamar</a>
+    <div class="section-label">Pembayaran</div>
+    <a href="pembayaran_booking.html">📅 Booking</a>
+    <a href="pembayaran_bulanan.html">💳 Pembayaran Bulanan</a>
+    <div class="section-label">Setting</div>
+    <a href="setting_tipe_property.html">⚙️ Tipe Property</a>
+    <a href="setting_tipe_kamar.html">⚙️ Tipe Kamar</a>
+    <a href="setting_tipe_transaksi.html">⚙️ Tipe Transaksi</a>
+    <div class="section-label">Report</div>
+    <a href="report_penghuni_aktif.html">📊 Penghuni Aktif</a>
+    <a href="report_kamar_kosong.html">📊 Kamar Kosong</a>
+    <a href="report_tagihan_penghuni.html">📊 Tagihan Penghuni</a>
+    <a href="report_keuangan.html">📊 Keuangan</a>
+    <a href="report_booking.html">📊 Booking Report</a>
+  </div>
+  <div class="sidebar-overlay"></div>
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+        <h1>Property</h1>
+      </div>
+      <div class="user"><span>Tommy Hutomo</span><div class="avatar">TH</div></div>
+    </div>
+    <div class="content">
+      <div class="card">
+        <div class="toolbar">
+          <div class="filters">
+            <input type="text" data-filter="search" placeholder="Cari nama property...">
+            <select data-filter="tipe"><option value="">Semua Tipe Property</option></select>
+            <select data-filter="city"><option value="">Semua Kota</option></select>
+          </div>
+          <button class="btn btn-primary" onclick="document.getElementById('modalAdd').style.display='flex'">+ Tambah Property</button>
+        </div>
+        <table data-table="property">
+          <thead>
+            <tr><th>Property ID</th><th>Nama Property</th><th>Tipe Property</th><th>Alamat</th><th>Kota</th><th>Total Kamar</th><th>Status</th><th>Aksi</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div class="pagination">
+          <a href="#">&laquo;</a><span class="active">1</span><a href="#">2</a><a href="#">3</a><a href="#">&raquo;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalAdd" style="display:none;">
+  <div class="modal">
+    <h3>Tambah Property</h3>
+    <div class="form-grid">
+      <div class="form-group"><label>Nama Property</label><input type="text" placeholder="Kost Melati"></div>
+      <div class="form-group"><label>Tipe Property</label><select><option>Kost Putra</option><option>Kost Putri</option><option>Kost Campur</option></select></div>
+      <div class="form-group full"><label>Alamat 1</label><input type="text" placeholder="Jl. Melati No. 12"></div>
+      <div class="form-group full"><label>Alamat 2</label><input type="text" placeholder="(opsional)"></div>
+      <div class="form-group"><label>Kota</label><input type="text" placeholder="Jakarta"></div>
+      <div class="form-group"><label>Provinsi</label><input type="text" placeholder="DKI Jakarta"></div>
+      <div class="form-group"><label>Kode Pos</label><input type="text" placeholder="12345"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="document.getElementById('modalAdd').style.display='none'">Batal</button>
+      <button class="btn btn-primary">Simpan</button>
+    </div>
+  </div>
+</div>
+<script src="js/api.js"></script>
+<script src="js/format.js"></script>
+<script src="js/auth-guard.js"></script>
+<script src="js/app.js"></script>
+<script src="mobile-nav.js"></script>
+</body>
+</html>

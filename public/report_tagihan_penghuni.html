@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report Tagihan Penghuni - Kost Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="report-tagihan">
+<div class="layout">
+  <div class="sidebar">
+    <div class="brand">KOST<span>Manager</span></div>
+    <a href="main_menu.html">🏠 Main Menu</a>
+    <div class="section-label">Master Data</div>
+    <a href="property.html">🏢 Property</a>
+    <a href="kamar.html">🚪 Kamar</a>
+    <div class="section-label">Pembayaran</div>
+    <a href="pembayaran_booking.html">📅 Booking</a>
+    <a href="pembayaran_bulanan.html">💳 Pembayaran Bulanan</a>
+    <div class="section-label">Setting</div>
+    <a href="setting_tipe_property.html">⚙️ Tipe Property</a>
+    <a href="setting_tipe_kamar.html">⚙️ Tipe Kamar</a>
+    <a href="setting_tipe_transaksi.html">⚙️ Tipe Transaksi</a>
+    <div class="section-label">Report</div>
+    <a href="report_penghuni_aktif.html">📊 Penghuni Aktif</a>
+    <a href="report_kamar_kosong.html">📊 Kamar Kosong</a>
+    <a href="report_tagihan_penghuni.html" class="active">📊 Tagihan Penghuni</a>
+    <a href="report_keuangan.html">📊 Keuangan</a>
+    <a href="report_booking.html">📊 Booking Report</a>
+  </div>
+  <div class="sidebar-overlay"></div>
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+        <h1>Report &rsaquo; Tagihan Penghuni</h1>
+      </div>
+      <div class="user"><span>Tommy Hutomo</span><div class="avatar">TH</div></div>
+    </div>
+    <div class="content">
+      <div class="grid-cards cols-3">
+        <div class="stat-card"><div class="label">Total Tagihan Bulan Ini</div><div class="value">Rp 192jt</div></div>
+        <div class="stat-card"><div class="label">Sudah Dibayar</div><div class="value" style="color:#16a34a;">Rp 168jt</div></div>
+        <div class="stat-card"><div class="label">Belum Dibayar</div><div class="value" style="color:#d97706;">Rp 24jt</div></div>
+      </div>
+      <div class="card">
+        <div class="toolbar">
+          <div class="filters">
+            <input type="text" placeholder="Cari nama penghuni...">
+            <select><option>Bulan: Oktober 2026</option><option>September 2026</option></select>
+            <select><option>Semua Status</option><option>Lunas</option><option>Belum Bayar</option></select>
+          </div>
+          <button class="btn btn-outline">⬇ Export Excel</button>
+        </div>
+        <table data-table="report-tagihan">
+          <thead>
+            <tr><th>Penghuni</th><th>Kamar</th><th>Property</th><th>Periode</th><th>Jumlah Tagihan</th><th>Tgl Jatuh Tempo</th><th>Status</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div class="pagination">
+          <a href="#">&laquo;</a><span class="active">1</span><a href="#">2</a><a href="#">3</a><a href="#">&raquo;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/api.js"></script>
+<script src="js/format.js"></script>
+<script src="js/auth-guard.js"></script>
+<script src="js/app.js"></script>
+<script src="mobile-nav.js"></script>
+</body>
+</html>

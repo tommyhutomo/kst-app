@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking - Kost Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="booking">
+<div class="layout">
+  <div class="sidebar">
+    <div class="brand">KOST<span>Manager</span></div>
+    <a href="main_menu.html">🏠 Main Menu</a>
+    <div class="section-label">Master Data</div>
+    <a href="property.html">🏢 Property</a>
+    <a href="kamar.html">🚪 Kamar</a>
+    <div class="section-label">Pembayaran</div>
+    <a href="pembayaran_booking.html" class="active">📅 Booking</a>
+    <a href="pembayaran_bulanan.html">💳 Pembayaran Bulanan</a>
+    <div class="section-label">Setting</div>
+    <a href="setting_tipe_property.html">⚙️ Tipe Property</a>
+    <a href="setting_tipe_kamar.html">⚙️ Tipe Kamar</a>
+    <a href="setting_tipe_transaksi.html">⚙️ Tipe Transaksi</a>
+    <div class="section-label">Report</div>
+    <a href="report_penghuni_aktif.html">📊 Penghuni Aktif</a>
+    <a href="report_kamar_kosong.html">📊 Kamar Kosong</a>
+    <a href="report_tagihan_penghuni.html">📊 Tagihan Penghuni</a>
+    <a href="report_keuangan.html">📊 Keuangan</a>
+    <a href="report_booking.html">📊 Booking Report</a>
+  </div>
+  <div class="sidebar-overlay"></div>
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+        <h1>Pembayaran &rsaquo; Booking</h1>
+      </div>
+      <div class="user"><span>Tommy Hutomo</span><div class="avatar">TH</div></div>
+    </div>
+    <div class="content">
+      <div class="tabs">
+        <a href="pembayaran_booking.html" class="active">Booking</a>
+        <a href="pembayaran_bulanan.html">Pembayaran Bulanan</a>
+      </div>
+      <div class="card">
+        <div class="toolbar">
+          <div class="filters">
+            <input type="text" placeholder="Cari nama customer...">
+            <select><option>Semua Status</option><option>Menunggu Konfirmasi</option><option>Dikonfirmasi</option><option>Dibatalkan</option></select>
+            <input type="date">
+          </div>
+          <button class="btn btn-primary" onclick="document.getElementById('modalAdd').style.display='flex'">+ Buat Booking</button>
+        </div>
+        <table data-table="booking">
+          <thead>
+            <tr><th>Booking ID</th><th>Kamar</th><th>Customer</th><th>Telepon</th><th>Tgl Booking</th><th>Expected Check-in</th><th>Deposit</th><th>Status</th><th>Aksi</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div class="pagination">
+          <a href="#">&laquo;</a><span class="active">1</span><a href="#">2</a><a href="#">&raquo;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalAdd" style="display:none;">
+  <div class="modal">
+    <h3>Buat Booking Baru</h3>
+    <div class="form-grid">
+      <div class="form-group full"><label>Kamar</label><select><option>A-102 - Kost Melati (Kosong)</option><option>C-310 - Kost Anggrek (Kosong)</option></select></div>
+      <div class="form-group"><label>Nama Customer</label><input type="text" placeholder="Rina Kartika"></div>
+      <div class="form-group"><label>No. Telepon</label><input type="text" placeholder="0812-3456-7890"></div>
+      <div class="form-group"><label>Tanggal Booking</label><input type="date"></div>
+      <div class="form-group"><label>Expected Check-in</label><input type="date"></div>
+      <div class="form-group"><label>Deposit Amount</label><input type="text" placeholder="Rp 500.000"></div>
+      <div class="form-group"><label>Status</label><select><option>Menunggu Konfirmasi</option><option>Dikonfirmasi</option></select></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="document.getElementById('modalAdd').style.display='none'">Batal</button>
+      <button class="btn btn-primary">Simpan</button>
+    </div>
+  </div>
+</div>
+<script src="js/api.js"></script>
+<script src="js/format.js"></script>
+<script src="js/auth-guard.js"></script>
+<script src="js/app.js"></script>
+<script src="mobile-nav.js"></script>
+</body>
+</html>
